@@ -45,31 +45,64 @@ class _SplashScreenState extends State<SplashScreen>
         color: theme.colorScheme.primary,
         child: SafeArea(
           child: Center(
-            child: FadeTransition(
-              opacity: _fadeAnimation,
-              child: SlideTransition(
-                position: _slideAnimation,
-                child: Container(
-                  width: 140,
-                  height: 140,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surface,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 20,
-                        offset: Offset(0, 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: SlideTransition(
+                    position: _slideAnimation,
+                    child: Container(
+                      width: 140,
+                      height: 140,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.surface,
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 20,
+                            offset: Offset(0, 10),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  child: Icon(
-                    Icons.school,
-                    size: 80,
-                    color: theme.colorScheme.primary,
+                      child: Icon(
+                        Icons.school,
+                        size: 80,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                const SizedBox(height: 40),
+                FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: SlideTransition(
+                    position: _slideAnimation,
+                    child: Column(
+                      children: [
+                        Text(
+                          'EduLearn Pro',
+                          style: theme.textTheme.displayMedium?.copyWith(
+                            color: theme.colorScheme.surface,
+                            letterSpacing: 1.5,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'Learn Anywhere, Achieve Everywhere',
+                          style: theme.textTheme.bodyLarge?.copyWith(
+                            color: theme.colorScheme.surface.withValues(
+                              alpha: 0.7,
+                            ),
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
