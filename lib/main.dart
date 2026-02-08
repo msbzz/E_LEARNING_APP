@@ -4,12 +4,14 @@ import 'package:e_learning_app/bloc/font/font_state.dart';
 import 'package:e_learning_app/core/theme/app_theme.dart';
 import 'package:e_learning_app/routes/app_routes.dart';
 import 'package:e_learning_app/routes/route_pages.dart';
+import 'package:e_learning_app/sevices/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await StorageService.init();
   runApp(const MyApp());
 }
 
