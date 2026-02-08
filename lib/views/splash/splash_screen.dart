@@ -1,4 +1,11 @@
+import 'package:e_learning_app/bloc/auth/auth_bloc.dart';
+import 'package:e_learning_app/bloc/auth/auth_state.dart';
+import 'package:e_learning_app/routes/app_routes.dart';
+import 'package:e_learning_app/sevices/storage_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen>
   late final AnimationController _animationController;
   late final Animation<double> _fadeAnimation;
   late final Animation<Offset> _slideAnimation;
+  bool _hasNavigated = false;
 
   @override
   void initState() {
@@ -33,7 +41,36 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animationController.forward();
 
-    Future.delayed(const Duration(seconds: 3), () {});
+    Future.delayed(const Duration(seconds: 3), () {
+      if (!mounted || _hasNavigated) {
+        _handleNavigation(context);
+      }
+    });
+  }
+
+  void _handleNavigation(BuildContext context) {
+    if (_hasNavigated) return;
+    _hasNavigated = true;
+
+    final AuthState = context.read<AuthBloc>().state;
+
+    if (StorageService.isFirstTime()) {
+      StorageService.setFirstTime(false);
+      // navigate to onboarding screen
+      Get.offNamed(AppRoutes.onboarding);
+    } else if (AuthState.userModel != null) {
+      // navigate to home screen
+      Get.offNamed(AppRoutes.home);
+    } else {
+      // navigate to login screen
+      Get.offNamed(AppRoutes.login);
+    }
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
