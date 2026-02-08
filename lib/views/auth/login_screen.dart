@@ -30,8 +30,18 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Center(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.school, size: 50, color: Colors.white),
+                        SizedBox(height: 10),
+                        Text(
+                          'Welcome Back!',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
