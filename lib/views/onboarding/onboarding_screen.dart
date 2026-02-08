@@ -1,7 +1,9 @@
 import 'package:e_learning_app/core/theme/app_colors.dart';
 import 'package:e_learning_app/models/onboarding_item.dart';
+import 'package:e_learning_app/routes/app_routes.dart';
 import 'package:e_learning_app/views/onboarding/widgets/onboarding_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -53,6 +55,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             itemBuilder: (context, index) {
               return OnboardingPageWidget(page: _pages[index]);
             },
+          ),
+          // skip button
+          Positioned(
+            top: 50,
+            right: 20,
+            child: TextButton(
+              onPressed: () => Get.offAllNamed(AppRoutes.login),
+              child: const Text(
+                'Skip',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
           ),
         ],
       ),
