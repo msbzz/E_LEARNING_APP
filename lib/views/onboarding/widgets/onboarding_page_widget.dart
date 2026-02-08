@@ -14,11 +14,36 @@ class OnboardingPageWidget extends StatelessWidget {
       color: AppColors.primary,
       child: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               height: Get.height * 0.4,
               padding: const EdgeInsets.all(32),
               child: Image.asset(page.image, fit: BoxFit.contain),
+            ),
+            const SizedBox(height: 40),
+            Text(
+              page.title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.2,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsetsGeometry.symmetric(horizontal: 40),
+              child: Text(
+                page.description,
+                style: const TextStyle(
+                  color: Colors.white70,
+                  fontSize: 16,
+                  letterSpacing: 1.5,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),
