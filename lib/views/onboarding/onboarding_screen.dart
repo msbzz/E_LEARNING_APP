@@ -4,6 +4,7 @@ import 'package:e_learning_app/routes/app_routes.dart';
 import 'package:e_learning_app/views/onboarding/widgets/onboarding_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -70,6 +71,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
+            ),
+          ),
+          // bottom navigation
+          Positioned(
+            bottom: 50,
+            left: 20,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SmoothPageIndicator(
+                  controller: _pageController,
+                  count: _pages.length,
+                  effect: const WormEffect(
+                    dotColor: Colors.white54,
+                    dotHeight: 10,
+                    dotWidth: 10,
+                    spacing: 8,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
