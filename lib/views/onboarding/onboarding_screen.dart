@@ -19,8 +19,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final List<OnboardingItem> _pages = [
     OnboardingItem(
-      image:
-          'assets/images/onboarding/onboarding1.png', // Add these images to your assets
+      image: 'assets/images/onboarding/onboarding1.png',
       title: 'Learn Anywhere',
       description:
           'Access your courses anytime, anywhere. Learn at your own pace with our flexible learning platform.',
@@ -57,6 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               return OnboardingPageWidget(page: _pages[index]);
             },
           ),
+
           // skip button
           Positioned(
             top: 50,
@@ -73,6 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
           ),
+
           // bottom navigation
           Positioned(
             bottom: 50,
@@ -89,6 +90,34 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     dotHeight: 10,
                     dotWidth: 10,
                     spacing: 8,
+                  ),
+                ),
+
+                // next / get started button
+                ElevatedButton(
+                  onPressed: () {
+                    if (_currentPage == _pages.length - 1) {
+                      Get.offAllNamed(AppRoutes.login);
+                    } else {
+                      _pageController.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.ease,
+                      );
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Text(
+                    _currentPage == _pages.length - 1 ? 'Get Started' : 'Next',
+                    style: TextStyle(color: AppColors.primary, fontSize: 16),
                   ),
                 ),
               ],
