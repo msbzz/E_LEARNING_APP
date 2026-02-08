@@ -102,6 +102,15 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                   ),
                 ),
+                const SizedBox(height: 60),
+                // loading indicatior
+                FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: CircularProgressIndicator(
+                    color: theme.colorScheme.surface,
+                    strokeWidth: 3,
+                  ),
+                ),
               ],
             ),
           ),
