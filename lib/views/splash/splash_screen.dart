@@ -42,7 +42,9 @@ class _SplashScreenState extends State<SplashScreen>
     _animationController.forward();
 
     Future.delayed(const Duration(seconds: 3), () {
-      if (!mounted || _hasNavigated) {
+      debugPrint(" <<<<<<<<<<<< into <==> Future.delayed >>>>>>>>>>>>>>");
+
+      if (mounted || _hasNavigated) {
         _handleNavigation(context);
       }
     });
@@ -52,13 +54,17 @@ class _SplashScreenState extends State<SplashScreen>
     if (_hasNavigated) return;
     _hasNavigated = true;
 
-    final AuthState = context.read<AuthBloc>().state;
+    final authState = context.read<AuthBloc>().state;
+
+    debugPrint(
+      "StorageService.isFirstTime() ==> ${StorageService.isFirstTime()}",
+    );
 
     if (StorageService.isFirstTime()) {
-      StorageService.setFirstTime(false);
+      //StorageService.setFirstTime(false);
       // navigate to onboarding screen
       Get.offNamed(AppRoutes.onboarding);
-    } else if (AuthState.userModel != null) {
+    } else if (authState.userModel != null) {
       // navigate to home screen
       Get.offNamed(AppRoutes.home);
     } else {
