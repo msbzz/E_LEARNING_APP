@@ -49,6 +49,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
 
             SizedBox(height: 20),
+
+            CustomButton(text: 'OK', onPressed: () => Get.back(), height: 50),
           ],
         ),
       ),
