@@ -47,7 +47,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.contoller,
-      obscureText: widget.obscureText,
+      obscureText: _obscureText,
       validator: widget.validator,
       keyboardType: widget.keyboardType,
       onChanged: widget.onChanged,
@@ -60,11 +60,15 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
         suffixIcon: widget.obscureText
             ? IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
                 icon: Icon(
                   _obscureText
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
                 ),
               )
             : widget.suffixIcon != null
