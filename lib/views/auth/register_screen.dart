@@ -17,7 +17,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   UserRole? _selectedRole;
 
@@ -26,7 +26,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     _fullNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _confirmController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -102,8 +102,64 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           contoller: _fullNameController,
                           validator: FormValidator.validateFullName,
                         ),
+                        const SizedBox(height: 20),
+                        // email textfield
+                        CustomTextfield(
+                          label: 'Email',
+                          prefixIcon: Icons.email_outlined,
+                          contoller: _emailController,
+                          validator: FormValidator.validateEmail,
+                        ),
+                        const SizedBox(height: 20),
+                        // password textfield
+                        CustomTextfield(
+                          label: 'Password',
+                          prefixIcon: Icons.password_outlined,
+                          contoller: _passwordController,
+                          validator: FormValidator.validatePassword,
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 20),
+                        // confirm password textfield
+                        CustomTextfield(
+                          label: 'Confirm password',
+                          prefixIcon: Icons.lock_outline,
+                          contoller: _confirmPasswordController,
+                          obscureText: true,
+                          validator: (value) =>
+                              FormValidator.validateConfirmPassword(
+                                value,
+                                _passwordController.text,
+                              ),
+                        ),
                       ],
                     ),
+                  ),
+                  const SizedBox(height: 20),
+                  DropdownButtonFormField<UserRole>(
+                    decoration: InputDecoration(
+                      labelText: 'Role',
+                      prefixIcon: const Icon(Icons.person_outline),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    items: UserRole.values.map<DropdownMenuItem<UserRole>>((
+                      UserRole role,
+                    ) {
+                      return DropdownMenuItem<UserRole>(
+                        value: role,
+                        child: Text(
+                          role.toString().split('.').last.capitalize!,
+                        ),
+                      );
+                    }).toList(),
+
+                    onChanged: (UserRole? value) {
+                      setState(() {
+                        _selectedRole = value;
+                      });
+                    },
                   ),
                 ],
               ),
