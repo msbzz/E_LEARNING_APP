@@ -96,6 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Form(
                     key: _formKey,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         // full name textfield
                         CustomTextfield(
@@ -174,6 +175,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                   // login link
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text('Already have an account?'),
                       TextButton(

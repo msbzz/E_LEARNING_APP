@@ -4,16 +4,20 @@ import 'package:e_learning_app/views/auth/register_screen.dart';
 import 'package:e_learning_app/views/home/home_screen.dart';
 import 'package:e_learning_app/views/onboarding/onboarding_screen.dart';
 import 'package:e_learning_app/views/splash/splash_screen.dart';
+import 'package:e_learning_app/views/teacher/teacher_home_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
+  // auth rotes
   static const String splash = '/splach';
   static const String onboarding = '/onboarding';
   static const String login = '/login';
   static const String register = '/register';
   static const String forgotPassword = '/forgot-password';
   static const String home = '/home';
-  static const String teacherHome = '/teacher-Home';
+
+  // teacher
+  static const String teacherHome = '/teacher/home';
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
@@ -29,7 +33,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
-
+      case teacherHome:
+        return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());
       default:
         return MaterialPageRoute(
           builder: (_) =>

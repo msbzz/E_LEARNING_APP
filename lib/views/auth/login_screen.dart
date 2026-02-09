@@ -1,10 +1,34 @@
+import 'package:e_learning_app/core/utils/validators.dart';
 import 'package:e_learning_app/routes/app_routes.dart';
 import 'package:e_learning_app/views/widgets/common/custom_button.dart';
+import 'package:e_learning_app/views/widgets/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _handleLogin() {
+    if (_formKey.currentState!.validate()) {
+      Get.offAllNamed(AppRoutes.home);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,61 +80,57 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 20),
+                  Form(
+                    child: Column(
+                      children: [
+                        CustomTextfield(
+                          label: 'Email',
+                          prefixIcon: Icons.email_outlined,
+                          contoller: _emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          validator: FormValidator.validateEmail,
+                        ),
+                        const SizedBox(height: 20),
+                        CustomTextfield(
+                          label: 'Password',
+                          prefixIcon: Icons.password_outlined,
+                          contoller: _passwordController,
+                          validator: FormValidator.validatePassword,
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 10),
 
-                  // Email Field
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      prefixIcon: const Icon(Icons.email_outlined),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
+                        // Forgot password
+                        Align(
+                          alignment: AlignmentGeometry.centerRight,
+                          child: TextButton(
+                            onPressed: () =>
+                                Get.toNamed(AppRoutes.forgotPassword),
+                            child: Text(
+                              'Forgot Password',
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 10),
+
+                        // Login Button
+                        CustomButton(
+                          text: 'Login',
+                          onPressed: () =>
+                              _handleLogin(), //Get.toNamed(AppRoutes.home),
+                        ),
+
+                        const SizedBox(height: 20),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 20),
 
-                  // Password Field
-                  TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      prefixIcon: const Icon(Icons.lock_clock_outlined),
-                      suffixIcon: const Icon(Icons.visibility_outlined),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
+                  //const SizedBox(height: 10),
 
-                  // Forgot password
-                  Align(
-                    alignment: AlignmentGeometry.centerRight,
-                    child: TextButton(
-                      onPressed: () => Get.toNamed(AppRoutes.forgotPassword),
-                      child: Text(
-                        'Forgot Password',
-                        style: TextStyle(color: Theme.of(context).primaryColor),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-
-                  // Login Button
-                  CustomButton(
-                    text: 'Login',
-                    onPressed: () => Get.toNamed(AppRoutes.home),
-                  ),
-
-                  const SizedBox(height: 20),
                   // Login Social
                   Row(
                     children: [
@@ -141,7 +161,7 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
 
                   // register links
                   Row(
@@ -176,7 +196,7 @@ class LoginScreen extends StatelessWidget {
     return CustomButton(
       icon: icon,
       isFullWidth: false,
-      height: 50,
+      height: 45,
       text: '',
       onPressed: onPressed,
       isOutlined: true,
