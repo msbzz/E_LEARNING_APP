@@ -39,6 +39,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               'Forgot Password',
               style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 10),
+            Text(
+              'Enter your meil address to reset your password',
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
           ],
         ),
       ),
