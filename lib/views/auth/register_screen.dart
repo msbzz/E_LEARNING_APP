@@ -61,6 +61,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       icon: Icon(Icons.arrow_back_ios, color: Colors.white),
                     ),
                   ),
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Create Account',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Start your learning journey',
+                          style: TextStyle(fontSize: 16, color: Colors.white70),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
