@@ -101,14 +101,60 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  CustomButton(text: 'Login', onPressed: () {}),
+
                   // Login Button
+                  CustomButton(text: 'Login', onPressed: () {}),
+
+                  const SizedBox(height: 20),
+                  // Login Social
+                  Row(
+                    children: [
+                      Expanded(child: Divider(color: Colors.grey.shade300)),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Text('Or continue with'),
+                      ),
+                      const SizedBox(height: 20),
+                      // Social login buttons
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _socialLoginButton(
+                            icon: Icons.g_mobiledata,
+                            onPressed: () {},
+                          ),
+                          _socialLoginButton(
+                            icon: Icons.g_mobiledata,
+                            onPressed: () {},
+                          ),
+                          _socialLoginButton(
+                            icon: Icons.g_mobiledata,
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _socialLoginButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+  }) {
+    return CustomButton(
+      icon: icon,
+      isFullWidth: false,
+      height: 50,
+      text: '',
+      onPressed: onPressed,
+      isOutlined: true,
     );
   }
 }
