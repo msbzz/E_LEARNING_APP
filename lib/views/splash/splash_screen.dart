@@ -42,8 +42,6 @@ class _SplashScreenState extends State<SplashScreen>
     _animationController.forward();
 
     Future.delayed(const Duration(seconds: 3), () {
-      debugPrint(" <<<<<<<<<<<< into <==> Future.delayed >>>>>>>>>>>>>>");
-
       if (mounted || _hasNavigated) {
         _handleNavigation(context);
       }
@@ -66,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen>
       Get.offNamed(AppRoutes.onboarding);
     } else if (authState.userModel != null) {
       // navigate to home screen
-      Get.offNamed(AppRoutes.home);
+      Get.offNamed(AppRoutes.main);
     } else {
       // navigate to login screen
       Get.offNamed(AppRoutes.login);

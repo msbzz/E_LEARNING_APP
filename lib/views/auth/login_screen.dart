@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _handleLogin() {
     if (_formKey.currentState!.validate()) {
-      Get.offAllNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.main);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

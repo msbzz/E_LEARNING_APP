@@ -32,6 +32,34 @@ class MainScreen extends StatelessWidget {
                 ProfileScreen(),
               ],
             ),
+            bottomNavigationBar: NavigationBar(
+              destinations: [
+                NavigationDestination(
+                  icon: Icon(Icons.home_outlined),
+                  selectedIcon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.play_lesson_outlined),
+                  selectedIcon: Icon(Icons.play_lesson),
+                  label: 'My Courses',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.quiz_outlined),
+                  selectedIcon: Icon(Icons.quiz),
+                  label: 'Quizzes',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.person_outlined),
+                  selectedIcon: Icon(Icons.person),
+                  label: 'Profile',
+                ),
+              ],
+              selectedIndex: state.currentIndex,
+              onDestinationSelected: (index) {
+                context.read<NavigationBloc>().add(NavigateToTab(index));
+              },
+            ),
           );
         },
       ),

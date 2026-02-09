@@ -1,13 +1,19 @@
+import 'package:e_learning_app/main_screen.dart';
 import 'package:e_learning_app/views/auth/forgot_password_screen.dart';
 import 'package:e_learning_app/views/auth/login_screen.dart';
 import 'package:e_learning_app/views/auth/register_screen.dart';
+import 'package:e_learning_app/views/course/course_list/course_list_screen.dart';
 import 'package:e_learning_app/views/home/home_screen.dart';
 import 'package:e_learning_app/views/onboarding/onboarding_screen.dart';
+import 'package:e_learning_app/views/profile/profile_screen.dart';
+import 'package:e_learning_app/views/quiz/quiz_list/widget/quiz_list_screen.dart';
 import 'package:e_learning_app/views/splash/splash_screen.dart';
 import 'package:e_learning_app/views/teacher/teacher_home_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
+  // maim
+  static const String main = '/main';
   // auth rotes
   static const String splash = '/splach';
   static const String onboarding = '/onboarding';
@@ -15,6 +21,18 @@ class AppRoutes {
   static const String register = '/register';
   static const String forgotPassword = '/forgot-password';
   static const String home = '/home';
+
+  // course routes
+
+  static const String courseList = '/course';
+
+  // quiz routes
+
+  static const String quizList = '/quizzes';
+
+  // quiz routes
+
+  static const String profile = '/profile';
 
   // teacher
   static const String teacherHome = '/teacher/home';
@@ -31,10 +49,25 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case forgotPassword:
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
+      case main:
+        return MaterialPageRoute(
+          builder: (_) => MainScreen(
+            initialIndex: setting.arguments is Map
+                ? (setting.arguments as Map<String, dynamic>)['initialIndex']
+                      as int?
+                : null,
+          ),
+        );
       case home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case teacherHome:
         return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());
+      case courseList:
+        return MaterialPageRoute(builder: (_) => const CourseListScreen());
+      case quizList:
+        return MaterialPageRoute(builder: (_) => const QuizListScreen());
+      case profile:
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
       default:
         return MaterialPageRoute(
           builder: (_) =>
