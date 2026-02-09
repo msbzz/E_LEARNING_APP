@@ -1,4 +1,6 @@
+import 'package:e_learning_app/core/utils/validators.dart';
 import 'package:e_learning_app/models/user_model.dart';
+import 'package:e_learning_app/views/widgets/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
@@ -77,6 +79,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Text(
                           'Start your learning journey',
                           style: TextStyle(fontSize: 16, color: Colors.white70),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        // full name textfield
+                        CustomTextfield(
+                          label: 'Full Name',
+                          prefixIcon: Icons.person_outline,
+                          contoller: _fullNameController,
+                          validator: FormValidator.validateFullName,
                         ),
                       ],
                     ),
