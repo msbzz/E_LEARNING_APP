@@ -1,3 +1,4 @@
+import 'package:e_learning_app/views/widgets/common/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -99,6 +100,9 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
+                  CustomButton(text: 'Login', onPressed: () {}),
+                  // Login Button
                 ],
               ),
             ),
