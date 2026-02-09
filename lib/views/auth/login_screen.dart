@@ -1,5 +1,7 @@
+import 'package:e_learning_app/routes/app_routes.dart';
 import 'package:e_learning_app/views/widgets/common/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -142,8 +144,9 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const Text("Don't have an account?"),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () => Get.toNamed(AppRoutes.register),
                         child: Text(
                           'Registrer',
                           style: TextStyle(
