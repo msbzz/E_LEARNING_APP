@@ -95,7 +95,7 @@ class LoginScreen extends StatelessWidget {
                   Align(
                     alignment: AlignmentGeometry.centerRight,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed(AppRoutes.forgotPassword),
                       child: Text(
                         'Forgot Password',
                         style: TextStyle(color: Theme.of(context).primaryColor),
@@ -105,7 +105,10 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   // Login Button
-                  CustomButton(text: 'Login', onPressed: () {}),
+                  CustomButton(
+                    text: 'Login',
+                    onPressed: () => Get.toNamed(AppRoutes.home),
+                  ),
 
                   const SizedBox(height: 20),
                   // Login Social
