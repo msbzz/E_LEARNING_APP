@@ -68,6 +68,24 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
+
+                  // Password Field
+                  TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      prefixIcon: const Icon(Icons.lock_clock_outlined),
+                      suffixIcon: const Icon(Icons.visibility_outlined),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
