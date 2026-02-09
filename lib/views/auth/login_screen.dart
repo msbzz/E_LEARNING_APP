@@ -114,24 +114,43 @@ class LoginScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text('Or continue with'),
                       ),
-                      const SizedBox(height: 20),
-                      // Social login buttons
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _socialLoginButton(
-                            icon: Icons.g_mobiledata,
-                            onPressed: () {},
+                      Expanded(child: Divider(color: Colors.grey.shade300)),
+                    ],
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // Social login buttons
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _socialLoginButton(
+                        icon: Icons.g_mobiledata,
+                        onPressed: () {},
+                      ),
+                      _socialLoginButton(
+                        icon: Icons.facebook,
+                        onPressed: () {},
+                      ),
+                      _socialLoginButton(icon: Icons.apple, onPressed: () {}),
+                    ],
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // register links
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Registrer',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
                           ),
-                          _socialLoginButton(
-                            icon: Icons.g_mobiledata,
-                            onPressed: () {},
-                          ),
-                          _socialLoginButton(
-                            icon: Icons.g_mobiledata,
-                            onPressed: () {},
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
