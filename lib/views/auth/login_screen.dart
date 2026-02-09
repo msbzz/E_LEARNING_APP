@@ -27,6 +27,13 @@ class _LoginScreenState extends State<LoginScreen> {
   void _handleLogin() {
     if (_formKey.currentState!.validate()) {
       Get.offAllNamed(AppRoutes.home);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Please fill in fields correctly'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -81,6 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const SizedBox(height: 20),
                   Form(
+                    key: _formKey,
                     child: Column(
                       children: [
                         CustomTextfield(
