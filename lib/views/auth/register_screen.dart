@@ -1,5 +1,7 @@
 import 'package:e_learning_app/core/utils/validators.dart';
 import 'package:e_learning_app/models/user_model.dart';
+import 'package:e_learning_app/routes/app_routes.dart';
+import 'package:e_learning_app/views/widgets/common/custom_button.dart';
 import 'package:e_learning_app/views/widgets/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -142,6 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       prefixIcon: const Icon(Icons.person_outline),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
                     ),
                     items: UserRole.values.map<DropdownMenuItem<UserRole>>((
@@ -161,6 +164,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       });
                     },
                   ),
+
+                  const SizedBox(height: 30),
+
+                  // register button
+                  CustomButton(text: 'Register', onPressed: _handleRegister),
+
+                  const SizedBox(height: 26),
+
+                  // login link
+                  Row(
+                    children: [
+                      const Text('Already have an account?'),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -168,5 +195,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       ),
     );
+  }
+
+  void _handleRegister() {
+    if (_formKey.currentState!.validate() && _selectedRole != null) {
+      if (_selectedRole == UserRole.teacher) {
+        Get.offAllNamed(AppRoutes.teacherHome);
+      } else {
+        Get.offAllNamed(AppRoutes.home);
+      }
+    } else if (_selectedRole == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Please select a role'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 }

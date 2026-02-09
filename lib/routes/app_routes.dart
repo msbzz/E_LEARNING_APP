@@ -11,8 +11,9 @@ class AppRoutes {
   static const String onboarding = '/onboarding';
   static const String login = '/login';
   static const String register = '/register';
-  static const String forgotPassword = '/forgot=password';
+  static const String forgotPassword = '/forgot-password';
   static const String home = '/home';
+  static const String teacherHome = '/teacher-Home';
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
