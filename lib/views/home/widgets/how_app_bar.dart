@@ -18,6 +18,28 @@ class HowAppBar extends StatelessWidget {
           icon: Icon(Icons.analytics, color: Colors.white),
         ),
       ],
+      flexibleSpace: FlexibleSpaceBar(
+        titlePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Welcome Back',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: AppColors.accent.withValues(alpha: 0.7),
+              ),
+            ),
+            Text(
+              'John Doe',
+              style: theme.textTheme.titleLarge?.copyWith(
+                color: AppColors.accent,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
