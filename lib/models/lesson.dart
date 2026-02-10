@@ -40,8 +40,8 @@ class Lesson {
       duration: duration ?? this.duration,
       resources: resources ?? this.resources,
       isPreview: isPreview ?? this.isPreview,
-      isLocked: isPreview ?? this.isLocked,
-      isCompleted: isPreview ?? this.isCompleted,
+      isLocked: isLocked ?? this.isLocked,
+      isCompleted: isCompleted ?? this.isCompleted,
     );
   }
 
@@ -51,7 +51,9 @@ class Lesson {
     description: json['description'],
     videoUrl: json['videoUrl'],
     duration: json['duration'],
-    resources: json['resources'],
+    resources: (json['resources'] as List)
+        .map((resource) => Resource.fromJson(resource))
+        .toList(),
     isPreview: json['isPreview'] ?? false,
     isCompleted: json['isCompleted'] ?? false,
     isLocked: json['isLocked'] ?? true,
@@ -63,7 +65,7 @@ class Lesson {
     'description': description,
     'videoUrl': videoUrl,
     'duration': duration,
-    'resources': resources,
+    'resources': resources.map((resource) => resource.toJson()).toList(),
     'isPreview': isPreview,
     'isCompleted': isCompleted,
     'isLocked': isLocked,
@@ -88,4 +90,18 @@ class Resource {
     required this.type,
     required this.url,
   });
+
+  factory Resource.fromJson(Map<String, dynamic> json) => Resource(
+    id: json['id'],
+    title: json['title'],
+    type: json['type'],
+    url: json['url'],
+  );
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'title': title,
+    'type': type,
+    'url': url,
+  };
 }
