@@ -1,6 +1,8 @@
 import 'package:e_learning_app/core/theme/app_colors.dart';
 import 'package:e_learning_app/models/category.dart';
+import 'package:e_learning_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CategorySection extends StatelessWidget {
   final List<Category> categories;
@@ -53,7 +55,7 @@ class CategorySection extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
-          onTap: () {},
+          onTap: () => _handleCategoryTap(context, category),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -68,6 +70,16 @@ class CategorySection extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '${category.courseCount} curses',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodySmall?.copyWith(color: AppColors.secondary),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -75,5 +87,10 @@ class CategorySection extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _handleCategoryTap(BuildContext context, Category category) {
+    Get.toNamed(AppRoutes.courseList);
+    // we will implement later
   }
 }

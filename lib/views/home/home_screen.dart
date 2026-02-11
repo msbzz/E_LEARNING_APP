@@ -1,6 +1,7 @@
 import 'package:e_learning_app/sevices/dummy_data_service.dart';
 import 'package:e_learning_app/views/home/widgets/category_section.dart';
 import 'package:e_learning_app/views/home/widgets/how_app_bar.dart';
+import 'package:e_learning_app/views/home/widgets/in_progress_section.dart';
 import 'package:e_learning_app/views/home/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:e_learning_app/models/category.dart';
@@ -72,6 +73,8 @@ class HomeScreen extends StatelessWidget {
               const SearchBarWidget(),
               const SizedBox(height: 32),
               CategorySection(categories: categories),
+              const SizedBox(height: 32),
+              InProgressSection(),
             ]),
           ),
         ),
