@@ -14,7 +14,7 @@ class DummyDataService {
           'Master Flutter and Dart from scratch. Build real-world cross-platform apps.',
       imageUrl: 'https://i.ytimg.com/vi/z9kOcyk5t8s/maxresdefault.jpg',
       instructorId: 'inst_1',
-      categoryId: '1', // Programming
+      categoryId: '1',
       price: 99.99,
       lessons: _createFlutterLessons(),
       level: 'Intermediate',
@@ -35,7 +35,56 @@ class DummyDataService {
       rating: 4.8,
       reviewCount: 245,
       enrollmentCount: 1200,
-    ), // Course
+    ),
+
+    Course(
+      id: '2',
+      title: 'UI/UX Design Fundamentals',
+      description:
+          'Learn the foundations of UI/UX and build interfaces that users love.',
+      imageUrl: 'https://i.ytimg.com/vi/9B0o9u8Zq1w/maxresdefault.jpg',
+      instructorId: 'inst_2',
+      categoryId: '2', // Design
+      price: 59.90,
+      lessons: _createDesignLessons(),
+      level: 'Beginner',
+      requirements: ['No prior experience required', 'Willingness to practice'],
+      whatYouWillLearn: [
+        'Design principles',
+        'Wireframes and prototypes',
+        'Color and typography',
+        'UX research basics',
+      ],
+      createdAt: DateTime.now().subtract(const Duration(days: 12)),
+      updatedAt: DateTime.now(),
+      rating: 4.6,
+      reviewCount: 180,
+      enrollmentCount: 980,
+    ),
+
+    Course(
+      id: '3',
+      title: 'Business Strategy Essentials',
+      description:
+          'Understand strategy, metrics, and execution to grow products and teams.',
+      imageUrl: 'https://i.ytimg.com/vi/0pThnRneDjw/maxresdefault.jpg',
+      instructorId: 'inst_3',
+      categoryId: '3', // Business
+      price: 79.00,
+      lessons: _createBusinessLessons(),
+      level: 'Intermediate',
+      requirements: ['Basic understanding of business'],
+      whatYouWillLearn: [
+        'Strategy frameworks',
+        'KPIs and metrics',
+        'Planning and execution',
+      ],
+      createdAt: DateTime.now().subtract(const Duration(days: 7)),
+      updatedAt: DateTime.now(),
+      rating: 4.7,
+      reviewCount: 92,
+      enrollmentCount: 540,
+    ),
   ];
 
   static final List<Quiz> quizzes = [
@@ -161,6 +210,96 @@ class DummyDataService {
       _createLesson('3', 'Presentation Skills', false, false),
       _createLesson('4', 'Negotiation Language', false, false),
       _createLesson('5', 'Professional Communication', false, false),
+    ];
+  }
+
+  static List<Lesson> _createBusinessLessons() {
+    return [
+      Lesson(
+        id: 'bus_1',
+        title: 'Introduction to Business Strategy',
+        description:
+            'Visão geral: o que é estratégia e como ela orienta decisões.',
+        videoUrl: 'https://www.youtube.com/watch?v=9ZfN87gSjvI',
+        duration: 15,
+        resources: [
+          Resource(
+            id: 'r1',
+            title: 'Resumo: Estratégia em 1 página',
+            url: 'https://example.com/strategy.pdf',
+            type: 'pdf',
+          ),
+          Resource(
+            id: 'r2',
+            title: 'Checklist: objetivos e métricas',
+            url: 'https://example.com/checklist.pdf',
+            type: 'pdf',
+          ),
+        ],
+        isCompleted: false,
+      ),
+
+      Lesson(
+        id: 'bus_2',
+        title: 'Understanding KPIs',
+        description: 'Como escolher e acompanhar indicadores que importam.',
+        videoUrl: 'https://www.youtube.com/watch?v=H3JcJx7Qm1A',
+        duration: 20,
+        resources: [
+          Resource(
+            id: 'r3',
+            title: 'Template KPIs',
+            url: 'https://example.com/kpis.xlsx',
+            type: 'xlsx',
+          ),
+        ],
+        isCompleted: false,
+      ),
+      Lesson(
+        id: 'bus_4',
+        title: 'Strategic Planning',
+        description: 'Como montar um plano com metas, prazos e prioridades.',
+        videoUrl: 'https://www.youtube.com/watch?v=YbJbV3t6u2k',
+        duration: 25,
+        resources: [
+          Resource(
+            id: 'r4_1',
+            title: 'Template: Plano trimestral',
+            type: 'template',
+            url: 'https://example.com/plano_trimestral.pdf',
+          ),
+          Resource(
+            id: 'r4_2',
+            title: 'Checklist: priorização (ICE/RICE)',
+            type: 'checklist',
+            url: 'https://example.com/priorizacao_ice_rice.pdf',
+          ),
+        ],
+        isCompleted: false,
+      ),
+
+      Lesson(
+        id: 'bus_5',
+        title: 'Execution Frameworks',
+        description: 'Frameworks para executar: OKRs, cadência e rituais.',
+        videoUrl: 'https://www.youtube.com/watch?v=ZKqk2d8mQ6s',
+        duration: 22,
+        resources: [
+          Resource(
+            id: 'r5_1',
+            title: 'Guia rápido: OKRs',
+            type: 'guide',
+            url: 'https://example.com/okrs_guide.pdf',
+          ),
+          Resource(
+            id: 'r5_2',
+            title: 'Modelo: reunião semanal',
+            type: 'template',
+            url: 'https://example.com/reuniao_semanal.doc',
+          ),
+        ],
+        isCompleted: false,
+      ),
     ];
   }
 

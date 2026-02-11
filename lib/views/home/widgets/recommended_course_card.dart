@@ -51,14 +51,14 @@ class RecommendedCourseCard extends StatelessWidget {
                     child: CachedNetworkImage(
                       imageUrl: imageUrl,
                       height: 90,
-                      width: double.infinity,
+                      width: 150,
                       fit: BoxFit.cover,
                       placeholder: (context, url) => Shimmer.fromColors(
                         baseColor: AppColors.primary.withValues(alpha: 0.1),
                         highlightColor: AppColors.accent,
                         child: Container(
                           height: 90,
-                          width: double.infinity,
+                          width: 150,
                           color: Colors.white,
                         ),
                       ),

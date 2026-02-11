@@ -27,18 +27,25 @@ class RecommendedSection extends StatelessWidget {
         ),
         SizedBox(
           height: 200,
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              final course = courses[index];
-              return RecommendedCourseCard(
-                courseId: course.id,
-                title: course.title,
-                imageUrl: course.imageUrl,
-                duration: '${course.lessons.length * 30} mins',
-                isPremium: course.isPremium,
-              );
-            },
-          ),
+          child: courses.isEmpty
+              ? const Center(child: Text('Sem recomendações no momento'))
+              : ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: courses.length,
+                  itemBuilder: (context, index) {
+                    final course = courses[index];
+                    debugPrint(
+                      '==== course.lessons.length ==== ${course.lessons.length}',
+                    );
+                    return RecommendedCourseCard(
+                      courseId: course.id,
+                      title: course.title,
+                      imageUrl: course.imageUrl,
+                      duration: '${course.lessons.length * 30} mins',
+                      isPremium: course.isPremium,
+                    );
+                  },
+                ),
         ),
       ],
     );
