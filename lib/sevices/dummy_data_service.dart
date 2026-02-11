@@ -15,6 +15,7 @@ class DummyDataService {
       imageUrl: 'https://i.ytimg.com/vi/z9kOcyk5t8s/maxresdefault.jpg',
       instructorId: 'inst_1',
       categoryId: '1',
+      isPremium: true,
       price: 99.99,
       lessons: _createFlutterLessons(),
       level: 'Intermediate',
