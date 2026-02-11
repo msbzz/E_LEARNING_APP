@@ -56,7 +56,11 @@ class InProgressSection extends StatelessWidget {
                   color: Colors.transparent,
                   child: InkWell(
                     borderRadius: BorderRadius.circular(16),
-                    onTap: () {},
+                    onTap: () => _handleInProgressCurseTap(
+                      context,
+                      course.id,
+                      completedLessons,
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Row(
@@ -101,6 +105,24 @@ class InProgressSection extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  'Progress: ${(progress * 100).toInt()}%',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: AppColors.secondary,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                LinearProgressIndicator(
+                                  value: progress,
+                                  backgroundColor: AppColors.primary.withValues(
+                                    alpha: 0.2,
+                                  ),
+                                  valueColor:
+                                      const AlwaysStoppedAnimation<Color>(
+                                        AppColors.primary,
+                                      ),
+                                ),
                               ],
                             ),
                           ),
@@ -115,5 +137,13 @@ class InProgressSection extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _handleInProgressCurseTap(
+    BuildContext context,
+    String couseId,
+    int lastLesson,
+  ) {
+    // we will implement latter
   }
 }
