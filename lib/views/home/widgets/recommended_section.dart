@@ -1,4 +1,5 @@
 import 'package:e_learning_app/sevices/dummy_data_service.dart';
+import 'package:e_learning_app/views/home/widgets/recommended_course_card.dart';
 import 'package:flutter/material.dart';
 
 class RecommendedSection extends StatelessWidget {
@@ -7,7 +8,7 @@ class RecommendedSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final couser = DummyDataService.courses;
+    final courses = DummyDataService.courses;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,6 +24,21 @@ class RecommendedSection extends StatelessWidget {
             ),
             TextButton(onPressed: () {}, child: Text('See All')),
           ],
+        ),
+        SizedBox(
+          height: 200,
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              final course = courses[index];
+              return RecommendedCourseCard(
+                courseId: course.id,
+                title: course.title,
+                imageUrl: course.imageUrl,
+                duration: '${course.lessons.length * 30} mins',
+                isPremium: course.isPremium,
+              );
+            },
+          ),
         ),
       ],
     );
