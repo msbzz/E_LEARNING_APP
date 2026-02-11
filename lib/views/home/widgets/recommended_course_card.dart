@@ -115,6 +115,38 @@ class RecommendedCourseCard extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.person_outline,
+                          size: 14,
+                          color: AppColors.secondary,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          'Instructor ',
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(color: AppColors.secondary),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 4),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.access_time,
+                          size: 14,
+                          color: AppColors.secondary,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          duration,
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(color: AppColors.secondary),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
