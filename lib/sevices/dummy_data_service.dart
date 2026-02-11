@@ -84,6 +84,7 @@ class DummyDataService {
         resources: _createDummyResources(),
         isPreview: true,
         isLocked: false,
+        isCompleted: true,
       ),
       _createLesson('2', 'Dart Programming Basics', false, false),
       _createLesson('3', 'Building UI with Widgets', false, false),
