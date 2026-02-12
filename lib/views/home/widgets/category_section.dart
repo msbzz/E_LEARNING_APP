@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 class CategorySection extends StatelessWidget {
   final List<Category> categories;
 
-  CategorySection({super.key, required this.categories});
+  const CategorySection({super.key, required this.categories});
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,53 @@
+import 'package:e_learning_app/core/theme/app_colors.dart';
+import 'package:e_learning_app/sevices/dummy_data_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 
 class CourseListScreen extends StatelessWidget {
-  const CourseListScreen({super.key});
+  final String? categoryId;
+  final String? categoryName;
+  final bool showBackButton;
+
+  const CourseListScreen({
+    super.key,
+    this.categoryId,
+    this.categoryName,
+    this.showBackButton = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Course List Screen')));
+    final theme = Theme.of(context);
+    final courses = categoryId != null
+        ? DummyDataService.getCoursesByCategory(categoryId!)
+        : DummyDataService.courses;
+
+    return Scaffold(
+      backgroundColor: AppColors.lightBackground,
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 200,
+            pinned: true,
+            backgroundColor: AppColors.primary,
+            automaticallyImplyLeading: categoryId != null || showBackButton,
+            leading: (categoryId != null || showBackButton)
+                ? IconButton(
+                    onPressed: () => Get.back(),
+                    icon: const Icon(Icons.arrow_back),
+                  )
+                : null,
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.filter_list, color: AppColors.accent),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
