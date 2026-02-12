@@ -140,6 +140,19 @@ class CourseCard extends StatelessWidget {
                           color: AppColors.secondary,
                         ),
                       ),
+                      const Spacer(),
+                      const Icon(
+                        Icons.access_time,
+                        size: 16,
+                        color: AppColors.secondary,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        duration,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: AppColors.secondary,
+                        ),
+                      ),
                     ],
                   ),
                 ],
