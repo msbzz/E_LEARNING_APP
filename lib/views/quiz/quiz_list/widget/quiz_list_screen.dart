@@ -1,4 +1,6 @@
 import 'package:e_learning_app/core/theme/app_colors.dart';
+import 'package:e_learning_app/sevices/dummy_data_service.dart';
+import 'package:e_learning_app/views/quiz/quiz_list/widget/quiz_card.dart';
 import 'package:flutter/material.dart';
 
 class QuizListScreen extends StatelessWidget {
@@ -33,6 +35,21 @@ class QuizListScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.all(20),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final quiz = DummyDataService.quizzes[index];
+                return QuizCard(
+                  title: quiz.title,
+                  description: quiz.description,
+                  questionCount: quiz.questions.length,
+                  timaLimit: quiz.timeLimit,
+                  onTap: () {},
+                );
+              }),
             ),
           ),
         ],
