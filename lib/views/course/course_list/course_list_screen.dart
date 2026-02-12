@@ -55,6 +55,16 @@ class CourseListScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+
+              background: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [AppColors.primary, AppColors.primaryLight],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+              ),
             ),
           ),
         ],
