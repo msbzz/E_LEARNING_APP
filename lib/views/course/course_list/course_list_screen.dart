@@ -79,16 +79,19 @@ class CourseListScreen extends StatelessWidget {
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate((context, index) {
                   final course = courses[index];
-                  return CourseCard(
-                    courseId: course.id,
-                    title: course.title,
-                    subtiltle: course.description,
-                    imageUrl: course.imageUrl,
-                    rating: course.rating,
-                    duration: '${course.lessons.length * 30} min',
-                    isPremium: course.isPremium,
+                  return Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: CourseCard(
+                      courseId: course.id,
+                      title: course.title,
+                      subtiltle: course.description,
+                      imageUrl: course.imageUrl,
+                      rating: course.rating,
+                      duration: '${course.lessons.length * 30} min',
+                      isPremium: course.isPremium,
+                    ),
                   );
-                }),
+                }, childCount: courses.length),
               ),
             ),
         ],

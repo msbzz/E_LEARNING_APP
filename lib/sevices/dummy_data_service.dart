@@ -86,6 +86,77 @@ class DummyDataService {
       reviewCount: 92,
       enrollmentCount: 540,
     ),
+    Course(
+      id: '4',
+      title: 'Product Management Fundamentals',
+      description:
+          'Learn how to manage products from discovery to delivery using agile and data-driven decision making.',
+      imageUrl: 'https://i.ytimg.com/vi/7VxC1f7p4Zk/maxresdefault.jpg',
+      instructorId: 'inst_4',
+      categoryId: '3', // Business
+      price: 89.00,
+      lessons: _createBusinessLessons(),
+      level: 'Beginner',
+      requirements: ['Basic understanding of business concepts'],
+      whatYouWillLearn: [
+        'Product lifecycle',
+        'User research basics',
+        'Roadmap planning',
+      ],
+      createdAt: DateTime.now().subtract(const Duration(days: 12)),
+      updatedAt: DateTime.now(),
+      rating: 4.5,
+      reviewCount: 64,
+      enrollmentCount: 420,
+    ),
+
+    Course(
+      id: '5',
+      title: 'Leadership and Team Management',
+      description:
+          'Develop leadership skills to manage teams effectively, improve communication, and drive results.',
+      imageUrl: 'https://i.ytimg.com/vi/2yFZVv5tq8E/maxresdefault.jpg',
+      instructorId: 'inst_5',
+      categoryId: '3', // Business
+      price: 99.00,
+      lessons: _createBusinessLessons(),
+      level: 'Intermediate',
+      requirements: ['Experience working in teams'],
+      whatYouWillLearn: [
+        'Leadership styles',
+        'Team communication',
+        'Conflict resolution',
+      ],
+      createdAt: DateTime.now().subtract(const Duration(days: 20)),
+      updatedAt: DateTime.now(),
+      rating: 4.6,
+      reviewCount: 110,
+      enrollmentCount: 780,
+    ),
+
+    Course(
+      id: '6',
+      title: 'Data-Driven Decision Making',
+      description:
+          'Use metrics, analytics and experimentation to make better business decisions.',
+      imageUrl: 'https://i.ytimg.com/vi/6f2J2vZ3GQk/maxresdefault.jpg',
+      instructorId: 'inst_6',
+      categoryId: '3', // Business
+      price: 109.00,
+      lessons: _createBusinessLessons(),
+      level: 'Advanced',
+      requirements: ['Basic analytics knowledge'],
+      whatYouWillLearn: [
+        'KPIs and dashboards',
+        'A/B testing basics',
+        'Data interpretation',
+      ],
+      createdAt: DateTime.now().subtract(const Duration(days: 30)),
+      updatedAt: DateTime.now(),
+      rating: 4.8,
+      reviewCount: 150,
+      enrollmentCount: 920,
+    ),
   ];
 
   static final List<Quiz> quizzes = [

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_learning_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CourseCard extends StatelessWidget {
   final String courseId;
@@ -54,6 +55,21 @@ class CourseCard extends StatelessWidget {
                     height: 180,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    placeholder: (context, url) => Shimmer.fromColors(
+                      baseColor: AppColors.primary.withValues(alpha: 0.1),
+                      highlightColor: AppColors.accent,
+
+                      child: Container(
+                        height: 180,
+                        width: double.infinity,
+                        color: Colors.white,
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      height: 180,
+                      color: AppColors.primary.withValues(alpha: 0.1),
+                      child: const Icon(Icons.error),
+                    ),
                   ),
                 ),
               ],
