@@ -1,5 +1,7 @@
 import 'package:e_learning_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 
 class EpmtyStateWidget extends StatelessWidget {
   final String title;
@@ -41,6 +43,15 @@ class EpmtyStateWidget extends StatelessWidget {
               color: AppColors.secondary,
             ),
             textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 24),
+          ElevatedButton.icon(
+            onPressed: onActionPressed ?? () => Get.back(),
+            label: Text(actionLabel),
+            icon: const Icon(Icons.arrow_back),
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            ),
           ),
         ],
       ),

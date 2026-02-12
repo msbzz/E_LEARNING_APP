@@ -1,5 +1,6 @@
 import 'package:e_learning_app/core/theme/app_colors.dart';
 import 'package:e_learning_app/sevices/dummy_data_service.dart';
+import 'package:e_learning_app/views/course/course_list/widgets/course_card.dart';
 import 'package:e_learning_app/views/course/course_list/widgets/course_filter_dialog.dart';
 import 'package:e_learning_app/views/course/course_list/widgets/epmty_state_widget.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +72,24 @@ class CourseListScreen extends StatelessWidget {
           if (courses.isEmpty)
             SliverFillRemaining(
               child: EpmtyStateWidget(onActionPressed: () => Get.back()),
+            )
+          else
+            SliverPadding(
+              padding: EdgeInsets.all(16),
+              sliver: SliverList(
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final course = courses[index];
+                  return CourseCard(
+                    courseId: course.id,
+                    title: course.title,
+                    subtiltle: course.description,
+                    imageUrl: course.imageUrl,
+                    rating: course.rating,
+                    duration: '${course.lessons.length * 30} min',
+                    isPremium: course.isPremium,
+                  );
+                }),
+              ),
             ),
         ],
       ),
