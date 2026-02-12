@@ -46,6 +46,16 @@ class CourseListScreen extends StatelessWidget {
                 icon: Icon(Icons.filter_list, color: AppColors.accent),
               ),
             ],
+            flexibleSpace: FlexibleSpaceBar(
+              titlePadding: const EdgeInsets.all(6),
+              title: Text(
+                categoryName ?? 'All Courses',
+                style: theme.textTheme.headlineMedium?.copyWith(
+                  color: AppColors.accent,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ),
         ],
       ),
