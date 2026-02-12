@@ -49,7 +49,7 @@ class QuizListScreen extends StatelessWidget {
                   timaLimit: quiz.timeLimit,
                   onTap: () {},
                 );
-              }),
+              }, childCount: DummyDataService.quizzes.length),
             ),
           ),
         ],
