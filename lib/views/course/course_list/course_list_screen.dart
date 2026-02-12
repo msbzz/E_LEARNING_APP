@@ -1,5 +1,6 @@
 import 'package:e_learning_app/core/theme/app_colors.dart';
 import 'package:e_learning_app/sevices/dummy_data_service.dart';
+import 'package:e_learning_app/views/course/course_list/widgets/course_filter_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
@@ -41,13 +42,20 @@ class CourseListScreen extends StatelessWidget {
                 : null,
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () => _showFilterDialog(context),
                 icon: Icon(Icons.filter_list, color: AppColors.accent),
               ),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  void _showFilterDialog(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => CourseFilterDialog(),
     );
   }
 }
