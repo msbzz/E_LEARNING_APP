@@ -24,6 +24,24 @@ class CourseFilterDialog extends StatelessWidget {
           _buildFilterOption(context, 'Beginner', false),
           _buildFilterOption(context, 'Intermediate', false),
           _buildFilterOption(context, 'Advance', false),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('Reset'),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('Apply'),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
