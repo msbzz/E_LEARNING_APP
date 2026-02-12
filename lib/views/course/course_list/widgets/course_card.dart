@@ -113,6 +113,17 @@ class CourseCard extends StatelessWidget {
                       color: AppColors.primary,
                       fontWeight: FontWeight.bold,
                     ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    subtiltle,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      color: AppColors.secondary,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
