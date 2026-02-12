@@ -19,8 +19,30 @@ class CourseFilterDialog extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          const SizedBox(width: 16),
+          _buildFilterOption(context, 'All Leves', true),
+          _buildFilterOption(context, 'Beginner', false),
+          _buildFilterOption(context, 'Intermediate', false),
+          _buildFilterOption(context, 'Advance', false),
         ],
       ),
+    );
+  }
+
+  Widget _buildFilterOption(
+    BuildContext context,
+    String label,
+    bool isSelected,
+  ) {
+    return ListTile(
+      title: Text(label),
+      trailing: isSelected
+          ? const Icon(Icons.circle, color: AppColors.primary)
+          : const Icon(Icons.circle_outlined),
+      onTap: () {
+        // implement filter selection logic
+        Navigator.pop(context);
+      },
     );
   }
 }
