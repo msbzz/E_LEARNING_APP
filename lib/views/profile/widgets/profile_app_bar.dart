@@ -53,6 +53,21 @@ class ProfileAppBar extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 16),
+              Text(
+                fullName,
+                style: theme.textTheme.headlineSmall?.copyWith(
+                  color: AppColors.accent,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                email,
+                style: theme.textTheme.headlineSmall?.copyWith(
+                  color: AppColors.accent.withValues(alpha: 0.8),
+                ),
+              ),
             ],
           ),
         ),
