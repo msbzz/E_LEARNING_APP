@@ -1,3 +1,5 @@
+import 'package:e_learning_app/core/theme/app_colors.dart';
+import 'package:e_learning_app/views/profile/widgets/profile_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -5,6 +7,18 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Profile Screen')));
+    return Scaffold(
+      backgroundColor: AppColors.lightBackground,
+      body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          ProfileAppBar(
+            initials: 'JD',
+            fullName: 'John Doe',
+            email: 'johndoel@gmail.com',
+          ),
+        ],
+      ),
+    );
   }
 }
