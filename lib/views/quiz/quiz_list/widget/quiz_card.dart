@@ -58,11 +58,35 @@ class QuizCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
+                Row(
+                  children: [
+                    _buildQuizStat(
+                      theme,
+                      Icons.quiz_outlined,
+                      '$questionCount Questions',
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildQuizStat(ThemeData theme, IconData icon, String text) {
+    return Row(
+      children: [
+        Icon(icon, size: 20, color: AppColors.secondary),
+        const SizedBox(width: 8),
+        Text(
+          text,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            color: AppColors.secondary,
+          ),
+        ),
+      ],
     );
   }
 }
