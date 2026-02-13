@@ -59,11 +59,18 @@ class QuizCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     _buildQuizStat(
                       theme,
                       Icons.quiz_outlined,
                       '$questionCount Questions',
+                    ),
+
+                    _buildQuizStat(
+                      theme,
+                      Icons.timer_outlined,
+                      '$timaLimit minutes',
                     ),
                   ],
                 ),
