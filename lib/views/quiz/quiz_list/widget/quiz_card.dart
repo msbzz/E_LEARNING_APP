@@ -50,6 +50,14 @@ class QuizCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 8),
+                Text(
+                  description,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: AppColors.secondary,
+                  ),
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),
