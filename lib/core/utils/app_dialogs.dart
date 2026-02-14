@@ -32,6 +32,13 @@ class AppDialogs {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 8),
+              Text(
+                'Are you sure you want to logou?',
+                style: Get.theme.textTheme.titleMedium?.copyWith(
+                  color: AppColors.secondary,
+                ),
+              ),
             ],
           ),
         ),
