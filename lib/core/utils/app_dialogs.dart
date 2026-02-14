@@ -25,6 +25,13 @@ class AppDialogs {
                   size: 32,
                 ),
               ),
+              const SizedBox(height: 20),
+              Text(
+                'Logout',
+                style: Get.theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),
