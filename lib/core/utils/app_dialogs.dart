@@ -39,6 +39,16 @@ class AppDialogs {
                   color: AppColors.secondary,
                 ),
               ),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    onPressed: () => Get.back(result: false),
+                    child: Text('Cancel'),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
