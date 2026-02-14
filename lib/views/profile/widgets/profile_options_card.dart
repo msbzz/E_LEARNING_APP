@@ -52,6 +52,14 @@ class ProfileOptionsCard extends StatelessWidget {
                           color: isDestruction
                               ? AppColors.error
                               : AppColors.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        subtitle,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          color: AppColors.primary,
                         ),
                       ),
                     ],
