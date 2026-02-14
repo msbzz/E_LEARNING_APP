@@ -43,18 +43,39 @@ class AppDialogs {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TextButton(
-                    onPressed: () => Get.back(result: false),
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () => Get.back(result: false),
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        'Cancel',
+                        style: Get.theme.textTheme.titleMedium?.copyWith(
+                          color: AppColors.secondary,
+                        ),
                       ),
                     ),
-                    child: Text(
-                      'Cancel',
-                      style: Get.theme.textTheme.titleMedium?.copyWith(
-                        color: AppColors.secondary,
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () => Get.back(result: true),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        backgroundColor: AppColors.error,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        'Logout',
+                        style: Get.theme.textTheme.titleMedium?.copyWith(
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
