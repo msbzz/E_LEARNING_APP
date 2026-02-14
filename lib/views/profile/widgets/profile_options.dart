@@ -1,6 +1,9 @@
 import 'package:e_learning_app/core/utils/app_dialogs.dart';
+import 'package:e_learning_app/routes/app_routes.dart';
 import 'package:e_learning_app/views/profile/widgets/profile_options_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class ProfileOptions extends StatelessWidget {
   const ProfileOptions({super.key});
@@ -39,7 +42,12 @@ class ProfileOptions extends StatelessWidget {
           icon: Icons.logout,
           onTap: () async {
             final confirm = await AppDialogs.showLogutDialog();
+            if (confirm == true) {
+              // navigate to login page
+              Get.offAllNamed(AppRoutes.login);
+            }
           },
+          isDestruction: true,
         ),
       ],
     );
