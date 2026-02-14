@@ -1,3 +1,4 @@
+import 'package:e_learning_app/core/utils/app_dialogs.dart';
 import 'package:e_learning_app/views/profile/widgets/profile_options_card.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,14 @@ class ProfileOptions extends StatelessWidget {
           subtitle: 'Get help or contact support',
           icon: Icons.help_outlined,
           onTap: () {},
+        ),
+        ProfileOptionsCard(
+          title: 'Logout',
+          subtitle: 'Sign out your account',
+          icon: Icons.logout,
+          onTap: () async {
+            final confirm = await AppDialogs.showLogutDialog();
+          },
         ),
       ],
     );
