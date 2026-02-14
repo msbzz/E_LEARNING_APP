@@ -25,7 +25,11 @@ class ProfileStatsCard extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [_buildStat(theme, '12', 'Courses')],
+          children: [
+            _buildStat(theme, '12', 'Courses'),
+            _buildStat(theme, '156', 'Hours'),
+            _buildStat(theme, '86%', 'Success'),
+          ],
         ),
       ),
     );
@@ -45,8 +49,9 @@ class ProfileStatsCard extends StatelessWidget {
         Text(
           label,
           style: theme.textTheme.headlineSmall?.copyWith(
-            color: AppColors.secondary, 
+            color: AppColors.secondary,
           ),
+        ),
       ],
     );
   }
