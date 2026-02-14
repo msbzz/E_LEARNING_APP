@@ -45,7 +45,18 @@ class AppDialogs {
                 children: [
                   TextButton(
                     onPressed: () => Get.back(result: false),
-                    child: Text('Cancel'),
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Text(
+                      'Cancel',
+                      style: Get.theme.textTheme.titleMedium?.copyWith(
+                        color: AppColors.secondary,
+                      ),
+                    ),
                   ),
                 ],
               ),
