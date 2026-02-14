@@ -1,5 +1,6 @@
 import 'package:e_learning_app/core/theme/app_colors.dart';
 import 'package:e_learning_app/views/profile/widgets/profile_app_bar.dart';
+import 'package:e_learning_app/views/profile/widgets/profile_stats_card.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -16,6 +17,12 @@ class ProfileScreen extends StatelessWidget {
             initials: 'JD',
             fullName: 'John Doe',
             email: 'johndoel@gmail.com',
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(children: [ProfileStatsCard()]),
+            ),
           ),
         ],
       ),
