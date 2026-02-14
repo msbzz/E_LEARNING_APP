@@ -58,13 +58,14 @@ class ProfileOptionsCard extends StatelessWidget {
                       const SizedBox(height: 4),
                       Text(
                         subtitle,
-                        style: theme.textTheme.titleMedium?.copyWith(
+                        style: theme.textTheme.bodyMedium?.copyWith(
                           color: AppColors.primary,
                         ),
                       ),
                     ],
                   ),
                 ),
+                const Icon(Icons.chevron_right, size: 24),
               ],
             ),
           ),

@@ -14,6 +14,24 @@ class ProfileOptions extends StatelessWidget {
           icon: Icons.edit_outlined,
           onTap: () {},
         ),
+        ProfileOptionsCard(
+          title: 'Notifications',
+          subtitle: 'Manage your notifications',
+          icon: Icons.notifications_outlined,
+          onTap: () {},
+        ),
+        ProfileOptionsCard(
+          title: 'Settings',
+          subtitle: 'App preferences and more',
+          icon: Icons.settings_outlined,
+          onTap: () {},
+        ),
+        ProfileOptionsCard(
+          title: 'Help and Support',
+          subtitle: 'Get help or contact support',
+          icon: Icons.help_outlined,
+          onTap: () {},
+        ),
       ],
     );
   }
